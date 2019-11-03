@@ -11,12 +11,12 @@ namespace Taurit.Toolkit.KindleMateBacklogMonitor
         {
             var optionsBuilder = new DbContextOptionsBuilder<KindleMateDatabaseContext>();
             optionsBuilder.UseSqlite($"Filename={databasePath}");
-            using (var context = new KindleMateDatabaseContext(optionsBuilder.Options))
-            {
-                Int32 numClippingsLeftToProcess = context.Clippings.Count();
-                return new Stats(numClippingsLeftToProcess);
-            }
+            using var context = new KindleMateDatabaseContext(optionsBuilder.Options);
             
+            Int32 numClippingsLeftToProcess = context.Clippings.Count();
+            Int32 numWordLeftToLearn = context.Vocab.Count();
+
+            return new Stats(numClippingsLeftToProcess, numWordLeftToLearn);
         }
     }
 }

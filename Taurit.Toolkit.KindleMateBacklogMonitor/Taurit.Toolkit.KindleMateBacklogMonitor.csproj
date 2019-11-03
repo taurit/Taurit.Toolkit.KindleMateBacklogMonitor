@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileRunArguments>-v "d:\Inbox\KindleMate\:/KindleMate:ro"</DockerfileRunArguments>
+    <DockerfileRunArguments>-v "d:\Inbox\KindleMate\:/KindleMate:rw"</DockerfileRunArguments>
   </PropertyGroup>
 
   <ItemGroup>
