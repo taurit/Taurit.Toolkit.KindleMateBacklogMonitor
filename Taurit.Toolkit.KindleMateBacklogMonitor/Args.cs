@@ -5,7 +5,7 @@ namespace Taurit.Toolkit.KindleMateBacklogMonitor
 {
     public class Args
     {
-        [Option('d', "database", Required = true, HelpText = "Path to a SQL database file")]
-        public String DatabasePath { get; set; }
+        [Option('d', "directory", Required = false, HelpText = "Path to a KindleMate app's directory")]
+        public String KindleMateDirectory { get; set; }
     }
 }
