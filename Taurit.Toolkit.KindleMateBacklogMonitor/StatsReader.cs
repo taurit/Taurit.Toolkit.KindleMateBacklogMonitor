@@ -14,7 +14,7 @@ namespace Taurit.Toolkit.KindleMateBacklogMonitor
             using var context = new KindleMateDatabaseContext(optionsBuilder.Options);
             
             Int32 numClippingsLeftToProcess = context.Clippings.Count();
-            Int32 numWordLeftToLearn = context.Vocab.Count();
+            Int32 numWordLeftToLearn = context.Vocab.Count(x => x.Category == 0); // category 0 means 'Learning' (not mastered), 100 means mastered
 
             return new Stats(numClippingsLeftToProcess, numWordLeftToLearn);
         }
